@@ -1,0 +1,16 @@
+body {
+    overflow: hidden;
+    background-color: #dbd39a;
+    opacity: 0.8:
+    background-position: center center;
+}
+
+.headline {
+    font-size: 60px;
+    border-size: 5px;
+    font-family: brush script mt, cursive;
+    text-align: center;
+    text-shadow: 2px 2px 4px grey;
+}
+
+

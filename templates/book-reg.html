@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration</title>
+    <link rel="stylesheet" href="static/reg.css">
+</head>
+<body>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    <form method="POST" action="{{ url_for('book_reg') }}">
+        <div class="main">
+            <div class="right">
+                <div class="card">
+                    <h1>BOOK REGISTRATION</h1>
+                    <div class="textfield">
+                        <label for="b_name">Title:</label>
+                        <input type="text" name="b_name" required>
+                    </div>
+                    <br>
+                    <div class="textfield">
+                        <label for="b_year">First Published Year:</label>
+                        <input type="text" name="b_year" required>
+                    </div>
+                    <br>
+                    <div class="textfield">
+                        <label for="b_author">Author:</label>
+                        <input type="text" name="b_author" required>
+                    </div>
+                    <br>
+                    <div class="textfield">
+                        <label for="b_content">Description:</label>
+                        <input type="text" name="b_content" required>
+                    </div>
+                    <br>
+                    <div class="textfield">
+                        <label for="b_isbn">ISBN:</label>
+                        <input type="text" name="b_isbn" required>
+                    </div>
+                    <div class="textfield">
+                        <label for="url">Image Code URL:</label>
+                        <input type="text" name="url" required>
+                    </div>
+                    <br>
+                    <input type="submit" value="PUBLISH" class="btn-login">
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

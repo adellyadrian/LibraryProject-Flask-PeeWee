@@ -1,0 +1,43 @@
+body {
+    overflow: hidden;
+    background-image: url('https://i.pinimg.com/564x/fc/93/ff/fc93ff9b92d0e0722e237277e753e869.jpg');
+    background-size: 600px 800px;
+    background-position: center center;
+}
+
+
+.d {
+    overflow: hidden;
+    background-color: #dbd39a;
+    padding: 1px 1px;
+    width: 1000px;
+    height: 600px;
+    position: relative;
+    top: 60px;
+    left: 20%;
+    opacity: 0.9;
+}
+
+.headline{
+    text-align: center;
+    color: black;
+    border-size: 5px;
+    font-size: 60px;
+    font-family: brush script mt, cursive;
+    text-shadow: 2px 2px 4px grey;
+}
+
+.about_uni {
+    font-size: 50px;
+    text-align: center;
+    opacity: 0.8;
+}
+
+.home_link {
+    display: block;
+    text-align: center;
+    padding: 10px 20px;
+    color: black;
+    font-size: 40px;
+    font-family: brush script mt, cursive;
+}

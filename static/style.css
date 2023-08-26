@@ -1,0 +1,369 @@
+body {
+     background-image: url('https://image.slidesdocs.com/responsive-images/background/travel-postcard-illustration-poster-powerpoint-background_d3585837ee__960_540.jpg');
+     background-size: 1600px 800px;
+     background-repeat: repeat;
+     margin: 0;
+     padding: 0;
+}
+
+.header {
+    overflow: hidden;
+    background-color: #444422;
+    opacity: 0.8;
+    padding: 1px 1px;
+    height: 80px;
+  }
+
+  .header a {
+    float: left;
+    color: white;
+    padding: 16px;
+    text-decoration: none;
+    font-size: 40px;
+    line-height: 25px;
+    font-family: brush script mt, cursive;
+    border-radius: 4px;
+  }
+
+  .ul{
+    position: absolute;
+    top: 15px;
+    left: 10px;
+  }
+
+
+  .header a:hover {
+    background-color: #brown;
+    color: black;
+  }
+
+  .header a.active {
+    background-color: black;
+    color: white;
+  }
+
+  .header-right {
+    float: right;
+    margin-top: 10px;
+    padding: 5px;
+
+  }
+
+.header input[type=text] {
+    float: right;
+    padding: 6px;
+    border: none;
+    margin-top: 12px;
+    margin-right: 20px;
+    font-size: 17px;
+    background-color: white;
+  }
+
+.main_s{
+    position: absolute;
+    font-size: 30px;
+    padding: 20px;
+    width: 800px;
+    background-color: #967969;
+    opacity: 0.7;
+    color: white;
+}
+
+.logo{
+        width: 40px;
+        position: absolute;
+        transform: scale(5);
+        border-radius: 100%;
+        left: 170px;
+        top: 200px;
+   }
+
+.input-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.input-container input::placeholder {
+    color: white;
+}
+
+.ult{
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+    font-size: 30px;
+    text-align: center;
+    border-size: 3px;
+    opacity: 0.5;
+}
+
+.examples {
+    background-color: white;
+    opacity: 0.9;
+    width: 100%;
+    height: 2100px;
+}
+
+.img1 {
+    width: 300px;
+    height: 400px;
+    margin-left: 60px;
+    margin-top: 70px;
+    float: left;
+    position: absolute;
+}
+
+
+.tb {
+    position: absolute;
+    margin-left: 700px;
+    margin-top: 20px;
+    font-size: 30px;
+    color: black;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+.p_1{
+    position: absolute;
+    left: 400px;
+    top: 550px;
+}
+
+.p1 {
+    font-size: 25px;
+}
+
+.s1 {
+    position: absolute;
+    margin: 30px 750px;
+    background-color: #0096FF;
+    width: 150px;
+    height: 50px;
+    color: white;
+    font-size: 15px;
+}
+
+.s1:hover {
+    background-color: black;
+}
+
+.img2 {
+    width: 300px;
+    height: 400px;
+    margin-left: 60px;
+    margin-top: 600px;
+    float: left;
+    position: absolute;
+}
+
+.p_2{
+    position: absolute;
+    left: 400px;
+    top: 1050px;
+}
+
+.p2 {
+    font-size: 25px;
+}
+
+.s2 {
+    position: absolute;
+    margin: 100px 750px;
+    background-color: #0096FF;
+    width: 150px;
+    height: 50px;
+    color: white;
+    font-size: 15px;
+}
+
+.s2:hover {
+    background-color: black;
+}
+
+.img3 {
+    width: 650px;
+    height: 500px;
+    margin-left: -100px;
+    margin-top: 1050px;
+    float: left;
+    position: absolute;
+}
+
+.p_3{
+    position: absolute;
+    left: 400px;
+    top: 1550px;
+}
+
+.p3 {
+    font-size: 25px;
+}
+
+.s3 {
+    position: absolute;
+    margin: 100px 750px;
+    background-color: #0096FF;
+    width: 150px;
+    height: 50px;
+    color: white;
+    font-size: 15px;
+}
+
+.s3:hover {
+    background-color: black;
+}
+
+.img4 {
+    width: 600px;
+    height: 500px;
+    margin-left: -80px;
+    margin-top: 1600px;
+    float: left;
+    position: absolute;
+}
+
+.p_4{
+    position: absolute;
+    left: 400px;
+    top: 2100px;
+}
+
+.p4 {
+    font-size: 25px;
+}
+
+.s4 {
+    position: absolute;
+    margin: 100px 750px;
+    background-color: #0096FF;
+    width: 150px;
+    height: 50px;
+    color: white;
+    font-size: 15px;
+}
+
+.s4:hover {
+    background-color: black;
+}
+
+.news {
+    overflow: hidden;
+    background-color: black;
+    opacity: 0.9;
+    height: 450px;
+}
+
+.event1 {
+    width: 550px;
+    height: 350px;
+    margin-top: 100px;
+    position: absolute;
+}
+
+.event2 {
+    width: 600px;
+    height: 350px;
+    margin-top: 100px;
+    margin-left: 450px;
+    position: absolute;
+}
+
+.event3 {
+    width: 600px;
+    height: 350px;
+    margin-top: 100px;
+    margin-left: 920px;
+    position: absolute;
+}
+
+.ev1 {
+    position: absolute;
+    margin-top: 180px;
+    margin-left: 10px;
+    font-size: 25px;
+    color: white;
+}
+
+.a1 {
+    color: white;
+}
+
+.ev2 {
+    position: absolute;
+    margin-top: 180px;
+    margin-left: 470px;
+    font-size: 20px;
+    color: white;
+}
+
+.ev3 {
+    position: absolute;
+    margin-top: 180px;
+    margin-left: 960px;
+    font-size: 30px;
+    color: white;
+}
+
+.nh {
+    position: absolute;
+    font-size: 30px;
+    margin-left: 500px;
+    color: white;
+}
+
+.footer {
+    height: 200px;
+    overflow: hidden;
+    background-color: black;
+    opacity: 0.8;
+}
+
+.logo-2 {
+    width: 40px;
+    position: absolute;
+    transform: scale(4);
+    border-radius: 100%;
+    margin-top: 80px;
+    margin-left: 70px;
+}
+
+.follow {
+    color: white;
+    border-size: 10px;
+    margin-top: 80px;
+    margin-left: 200px;
+    font-size: 30px;
+    position: absolute;
+}
+
+.instlog {
+    width: 70px;
+    height: 70px;
+    margin-top: 10px;
+    margin-left: 450px;
+    position: absolute;
+}
+
+.fblog {
+    width: 70px;
+    height: 70px;
+    margin-top: 100px;
+    margin-left: 450px;
+}
+
+.il {
+    color: white;
+    margin-top: 30px;
+    margin-left: 20px;
+    position: absolute;
+    font-size: 20px;
+}
+
+.fl {
+    position: absolute;
+    color: white;
+    margin-top: 120px;
+    margin-left: 20px;
+    font-size: 20px;
+}

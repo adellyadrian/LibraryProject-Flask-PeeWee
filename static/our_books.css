@@ -1,0 +1,123 @@
+body {
+    background-color: #dbd39a;
+    opacity: 0.8:
+    background-position: center center;
+}
+
+.headline {
+    color: black;
+    font-size: 60px;
+    border-size: 5px;
+    font-family: brush script mt, cursive;
+    text-shadow: 2px 2px 4px grey;
+    text-align: center;
+}
+
+h1 {
+    color: black;
+    font-size: 30px;
+}
+
+.book-style {
+    width: 15%;
+}
+
+.hidden {
+    display: none;
+}
+
+.fn {
+    color: black;
+    font-size: 50px;
+    font-family: brush script mt, cursive;
+    text-shadow: 2px 2px 4px grey;
+}
+
+.add {
+
+}
+
+.bs {
+    color: black;
+}
+
+
+.show-details-checkbox {
+    display: none;
+}
+
+.title-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.additional-info {
+    display: none;
+    margin-top: 10px;
+}
+
+.show-details-checkbox:checked ~ .additional-info {
+    display: none;
+}
+
+.book-title-link {
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.additional-info {
+    display: none;
+}
+
+.additional-info:target {
+    display: block;
+}
+
+.s1 {
+    position: absolute;
+    margin-left: 230px;
+    margin-top: 100px;
+    background-color: #0096FF;
+    width: 100px;
+    height: 40px;
+    color: black;
+    font-size: 25px;
+    text-align: center;
+}
+
+.s1:hover {
+    background-color: black;
+    color: white;
+}
+
+.add {
+    float: right;
+    margin-right: 10px;
+    margin-top: 15px;
+    width: 200px;
+    height: 40px;
+    font-size: 25px;
+    color: white;
+    background: purple;
+    cursor: pointer;
+    box-shadow: 0px 10px 40px -5px purple;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.addbook {
+    float: right;
+    margin-right: 10px;
+    margin-top: 15px;
+    width: 70px;
+    height: 40px;
+    font-size: 30px;
+    color: white;
+    background: #9E4244;
+    cursor: pointer;
+    box-shadow: 0px 10px 40px -5px #9E4244;
+    text-align: center;
+}
+
