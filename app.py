@@ -3,7 +3,6 @@ from data import *
 
 
 app = Flask(__name__)
-app.template_folder = 'templates'
 app.config['SECRET_KEY'] = 'am375'
 app.config['DATABASE'] = 'datab.db'
 
@@ -31,15 +30,34 @@ def about():
     return render_template('about-page.html')
 
 
-@app.route('/students')
-def our_students():
-    return render_template('our-students.html')
+@app.route('/borrow', methods=['GET', 'POST'])
+def borrow():
+    if request.method == 'POST':
+        title = request.form['title']
+        year = request.form['year']
+        author = request.form['author']
+        content = request.form['content']
+        isbn = request.form['isbn']
+        image = request.form['image']
+
+        if not title:
+            flash('Title is required!')
+        elif not year:
+            flash('Year is required!')
+        elif not author:
+            flash('Author is required!')
+        elif not content:
+            flash('Content is required!')
+        elif not isbn:
+            flash('ISBN is required!')
+        elif not image:
+            flash('Image is required!')
+    return render_template('borrow_book.html')
 
 
 @app.route('/books')
 def our_books():
     return render_template('our-books.html')
-
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
@@ -108,6 +126,34 @@ def book_reg():
     return render_template('book-reg.html')
 
 
+@app.route('/student_info')
+def student_info():
+    if 'user_id' in session:
+        user_id = session['user_id']
+        user = Student.get(Student.id == user_id)
+        if user:
+            return render_template('our-students.html', user=user)
+        else:
+            flash('User not found.', 'danger')
+            return redirect(url_for('main'))
+    else:
+        flash('Please log in to view this page.', 'info')
+        return redirect(url_for('login'))
+    
+    
+@app.route('/search', methods=['GET', 'POST'])
+def search_books():
+    if request.method == 'POST':
+        name = request.form.get('title', '')
+        try:
+            book = Books.get(Books.title == name)
+            return render_template('search_books.html', bs=[book])
+        except Books.DoesNotExist:
+            flash('No matching books found.', 'sorry')
+            return redirect(url_for('search_books'))
+    return render_template('home-page.html')
+
+
 @app.route('/logout')
 def logout():
     session.pop('user_id', None)
@@ -149,20 +195,6 @@ def display():
         return redirect(url_for('login'))
 
 
-@app.route('/same_book')
-def open():
-    title = request.args.get('title')
-    author = request.args.get('author')
-    isbn = request.args.get('isbn')
-    year = request.args.get('year')
-
-    return render_template('our-books.html', title=title, author=author, isbn=isbn, year=year)
-
-
-@app.route('/same_book/<title>/<author>/<isbn>/<year>')
-def open_book(title, author, isbn, year):
-    return render_template('our-books.html', title=title, author=author, isbn=isbn, year=year)
-
 
 def create_tables():
     with db:
@@ -171,4 +203,4 @@ def create_tables():
 
 if __name__ == '__main__':
     create_tables()
-    app.run(debug=True, port=5007)
+    app.run(debug=True, port=80)
