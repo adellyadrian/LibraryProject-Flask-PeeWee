@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Result</title>
+    <link rel="stylesheet" href="static/search.css">
+</head>
+<body>
+    <div class="examples">
+    <h2 class='result'>Search Result</h2>
+        {% for book in bs %}
+                    {% if book.image %}
+                        <img src="{{ book.image }}" class="img">
+                    {% else %}
+                        <p>No image available</p>
+                    {% endif %}
+                    <h1 class="title">{{ book.title }}</h1>
+                    <h2 class="author">Author: {{ book.author }}</h2>
+                    <h3 class="isbn">ISBN: {{ book.isbn }}</h3>
+                    <h3 class="year">Year: {{ book.year }}</h3>
+                    <h3 class="content">Content: {{ book.content }}</h3>
+                    <div class="buttons">
+                        <a href="{{url_for('student_info', book_id=book_id)}}"><input type="submit" class="s1" value="Add to a List"></a>
+                        <a href="{{url_for('login')}}"><input type="submit" class="s2" value="LogIn"></a>
+                        <a href="{{url_for('main')}}"><input type="submit" class="s3" value="Home Page"></a>
+                    </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
