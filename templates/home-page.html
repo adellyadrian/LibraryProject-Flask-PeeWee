@@ -12,17 +12,19 @@
       <div class="header-right">
           <a class="active" href="#home">Home</a>
           <a href="{{url_for('about')}}">About</a>
-          <a href="{{url_for('our_students')}}">Our Students</a>
+          <a href="{{url_for('student_info')}}">Our Students</a>
           <a href="{{url_for('all_books')}}">Our Books</a>
           <a href="login">Login</a>
-          <input type="text" placeholder="Search...">
+          <a href="{{url_for('signup')}}">My Account</a>
           <img src="" alt="">
       </div>
   </div>
-  <div class="input-container">
-      <img src="https://t3.ftcdn.net/jpg/04/78/74/22/360_F_478742224_movr8lXS2eyJggCiLYG2RPA4Sp6Qru88.jpg" class="logo" alt="">
-      <input type="text" placeholder="Search a book" class="main_s">
-  </div>
+   <form method="POST" action="/search">
+        <div class="input-container">
+            <img src="https://t3.ftcdn.net/jpg/04/78/74/22/360_F_478742224_movr8lXS2eyJggCiLYG2RPA4Sp6Qru88.jpg" class="logo" alt="">
+                <input type="text" placeholder="Search a book" class="main_s" name='title'>
+        </div>
+    </form>
   <div>
       <p class="ult">
           UniLibrary is a platform where students can register,</br> order books of different genres, </br>and get informed about new events and books.</p>
