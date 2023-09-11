@@ -9,19 +9,14 @@
     {% if first_name %}
         <span class="fn">Student: {{ first_name }}</span>
         <a href="{{ url_for('logout') }}" class="add">Log Out</a>
-        <a class="add">Return a Book</a>
         <a href="{{ url_for('all_books') }}" class="add">Add a Book</a>
-        <a href="{{ url_for('book_reg') }}" class="addbook">Add</a>
-    {% elif borrowed_books %}
-        <h2>Your Borrowed Books:</h2>
-        <ul>
-            {% for book in borrowed_books %}
-                <li>
-                    <img src="{{ book.image }}" alt="{{ book.title }}" class="borrowed-book-image">
-                    {{ book.title }}
-                </li>
-            {% endfor %}
-        </ul>
+        <a href="{{ url_for('book_reg') }}" class="addbook">Book Registration</a>
+        <div class='display'>
+            <p>Name: {{ user.first_name }} {{ user.last_name }}</p>
+            <p>Email: {{ user.email }}</p>
+            <p>Code: {{ user.code }}</p>
+            <p>Password: {{ user.password }}</p>
+        </div>
     {% endif %}
 
 
@@ -45,7 +40,10 @@
                         <a href="#book-{{ loop.index }}" class="book-title-link">
                             <h1>{{ book.title }}</h1>
                         </a>
-                        <a class="s1">Borrow</a>
+    </form>
+    <form method="POST" action="{{ url_for('borrow_book', book_id=book.id) }}">
+                    <input type="hidden" name="book_id" value="{{ book.id }}">
+                    <input type="submit" value="Borrow" class="s1">
                     </label>
                     <div class="additional-info" id="book-{{ loop.index }}">
                         <h2>Author: {{ book.author }}</h2>
