@@ -73,31 +73,27 @@ def login():
     return render_template('log-in.html')
 
 
-@app.route('/book-registration', methods=['GET', 'POST'])
-def book_reg():
+@app.route('/new_book', methods=['GET', 'POST'])
+def new_book():
     if request.method == 'POST':
-        title = request.form['b_name']
-        year = request.form['b_year']
-        author = request.form['b_author']
-        content = request.form['b_content']
-        isbn = request.form['b_isbn']
-        image = request.form['url']
-
-        if not title:
-            flash('Title is required!')
-        elif not year:
-            flash('Year is required!')
-        elif not author:
-            flash('Author is required!')
-        elif not content:
-            flash('Content is required!')
-        elif not isbn:
-            flash('ISBN is required!')
-        elif not image:
-            flash('Image is required!')
-        else:
-            Books.create(b_name=title, b_year=year, b_author=author, b_content=content, b_isbn=isbn, url=image)
-            return redirect(url_for('all_books'))
+        title = request.form['title']
+        year = request.form['year']
+        author = request.form['author']
+        content = request.form['content']
+        isbn = request.form['isbn']
+        image = request.form['image']
+        status = request.form['status']
+        new_book = Books.create(
+            image=image,
+            title=title,
+            year=year,
+            author=author,
+            content=content,
+            isbn=isbn,
+            status=status
+        )
+        flash('Book added successfully!', 'success')
+        return redirect(url_for('all_books'))
     return render_template('book-reg.html')
     
     
