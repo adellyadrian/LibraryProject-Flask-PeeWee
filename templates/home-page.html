@@ -1,90 +1,59 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>University-Library</title>
-  <link rel="stylesheet" href="static/style.css">
+    <meta charset="UTF-8">
+    <title>Students</title>
+    <link rel="stylesheet" href="static/our_books.css">
 </head>
 <body>
-  <div class="header">
-      <a class="ul">UniLibrary</a>
-      <div class="header-right">
-          <a class="active" href="#home">Home</a>
-          <a href="{{url_for('about')}}">About</a>
-          <a href="{{url_for('student_info')}}">Our Students</a>
-          <a href="{{url_for('all_books')}}">Our Books</a>
-          <a href="login">Login</a>
-          <a href="{{url_for('signup')}}">My Account</a>
-          <img src="" alt="">
-      </div>
-  </div>
-   <form method="POST" action="/search">
-        <div class="input-container">
-            <img src="https://t3.ftcdn.net/jpg/04/78/74/22/360_F_478742224_movr8lXS2eyJggCiLYG2RPA4Sp6Qru88.jpg" class="logo" alt="">
-                <input type="text" placeholder="Search a book" class="main_s" name='title'>
+    {% if first_name %}
+        <span class="fn">Student: {{ first_name }}</span>
+        <a href="{{ url_for('logout') }}" class="add">Log Out</a>
+        <a href="{{ url_for('all_books') }}" class="add">Add a Book</a>
+        <a href="{{ url_for('book_reg') }}" class="addbook">Book Registration</a>
+        <div class='display'>
+            <p>Name: {{ user.first_name }} {{ user.last_name }}</p>
+            <p>Email: {{ user.email }}</p>
+            <p>Code: {{ user.code }}</p>
+            <p>Password: {{ user.password }}</p>
+        </div>
+    {% endif %}
+
+
+    {% if not first_name %}
+        <p class="headline">
+            UniLibrary Books
+        </p>
+    {% endif %}
+
+    <form method="POST" action="{{ url_for('all_books') }}">
+        <div class="bs">
+            {% for book in books %}
+                <div class="book">
+                    <label class="title-label">
+                        {% if book.image %}
+                            <img src="{{ book.image }}" class="book-style">
+                        {% else %}
+                            <p>No image available</p>
+                        {% endif %}
+                        <input type="checkbox" class="show-details-checkbox">
+                        <a href="#book-{{ loop.index }}" class="book-title-link">
+                            <h1>{{ book.title }}</h1>
+                        </a>
+    </form>
+    <form method="POST" action="{{ url_for('borrow_book', book_id=book.id) }}">
+                    <input type="hidden" name="book_id" value="{{ book.id }}">
+                    <input type="submit" value="Borrow" class="s1">
+                    </label>
+                    <div class="additional-info" id="book-{{ loop.index }}">
+                        <h2>Author: {{ book.author }}</h2>
+                        <h3>ISBN: {{ book.isbn }}</h3>
+                        <h3>Year: {{ book.year }}</h3>
+                        <h3>Content: {{ book.content }}</h3>
+                    </div>
+                </div>
+            {% endfor %}
         </div>
     </form>
-  <div>
-      <p class="ult">
-          UniLibrary is a platform where students can register,</br> order books of different genres, </br>and get informed about new events and books.</p>
-  </div>
-  <div class="examples">
-          <h1 class="tb">2023 TOP BOOKS</h1>
-      <img src="https://m.media-amazon.com/images/I/81GF9aNt-lL._AC_UF894,1000_QL80_.jpg" class="img1">
-      <img src="https://marybethkeane.com/wp-content/uploads/2022/10/the-half-moon.jpg" class="img2">
-      <div class="p_1">
-          <h1>The Sun and the Star</h1>
-          <p class="p1">The Sun and the Star is a fantasy novel co-written by authors Rick Riordan and Mark Oshiro.</br>
-              A standalone follow-up to the 2020 novel The Tower of Nero, </br>
-              it was released in North America and the United Kingdom on May 2, 2023, </br> Was published by Hachette Books.
-          </p>
-      </div>
-
-      <div class="p_2">
-          <h1>The Half Moon</h1>
-          <p class="p2">Mary Beth Keane attended Barnard College and the University of Virginia, </br>
-              where she received an MFA. She was awarded a John S. Guggenheim fellowship for fiction writing,</br>
-              and has received citations from the National Book Foundation, PEN America, and the Hemingway Society. </br>
-              She is the author of The Walking People, Fever, and Ask Again, Yes—a New York Times bestseller and a Tonight Show Starring Jimmy Fallon Summer Reads Pick.</br>
-              Ask Again, Yes has been sold in twenty-two languages. She lives in New York with her family.
-          </p>
-      </div>
-      <img src="https://images.squarespace-cdn.com/content/v1/633f1c1c37b21e03d8190900/1231dab6-f469-47a7-9fcb-98e3e1229875/1665088460.png" class="img3">
-      <div class="p_3">
-          <h1>Ascension</h1>
-          <p class="p3">"You've gotta read Ascension by Nicholas Binge. </br>
-              Old-school creepy. . .five-star horror."—Stephen King"Smartly paced,</br>
-          deploying twists and turns strategically to keep the reader moving. . . </br>
-          The ideas are big and the journey is a whole lot of fun.
-          </p>
-      </div>
-      <img src="https://mrusbooksnreviews.com/wp-content/uploads/2020/11/Zero-To-One-Cover.jpg" class="img4">
-        <div class="p_4">
-          <h1>Zero to One</h1>
-            <p class="p4">Zero to One: Notes on Startups, or How to Build the Future is a 2014 </br>
-                book by the American entrepreneur and investor Peter Thiel co-written with Blake Masters. </br>
-                It is a condensed and updated version of a highly popular set of online notes taken by Masters for the CS183 class on startups, </br>
-                as taught by Thiel at Stanford University in Spring 2012
-            </p>
-        </div>
-  </div>
-  <div class="news">
-      <p class="nh">News and Events in UniLibrary</p>
-      <img src="https://www.londonlibrary.co.uk/images/EE4A4716-London_Library_.jpg" class="event1">
-      <p class="ev1">12:30 PM </br> New book presentation in UniLibrary </br><a href="" class="a1">https://book-presentation</a></p>
-      <img src="https://www.theasianschool.net/blog/wp-content/uploads/2023/01/Why-School-Library-Is-Important.jpg" class="event2">
-      <p class="ev2">Are you interested in professional English courses,</br> new courses will start in Uni Library from September, </br>follow the link for details <a href="" class="a1">https://english-courses</a></p>
-      <img src="https://bookriot.com/wp-content/uploads/2020/09/children-reading-books-in-the-library-feature-700x375-1-1280x720.jpg" class="event3">
-      <p class="ev3">Free reading in the Uni Library </br>Every weekend for children under 15</p>
-  </div>
-  <div class="footer">
-      <img src="https://t3.ftcdn.net/jpg/04/78/74/22/360_F_478742224_movr8lXS2eyJggCiLYG2RPA4Sp6Qru88.jpg" class="logo-2" alt="">
-      <p class="follow">Follow us on: </p>
-      <img src="https://cdn3.iconfinder.com/data/icons/popular-services-brands/512/instagram-512.png" class="instlog">
-      <img src="https://cdn3.iconfinder.com/data/icons/free-social-icons/67/facebook_circle_color-512.png" class="fblog">
-      <a href="" class="il">www.instagram/uni_library.com</a>
-      <a href="" class="fl">www.facebook/Uni Library.com</a>
-  </div>
 </body>
 </html>
