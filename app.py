@@ -30,31 +30,6 @@ def about():
     return render_template('about-page.html')
 
 
-@app.route('/borrow', methods=['GET', 'POST'])
-def borrow():
-    if request.method == 'POST':
-        title = request.form['title']
-        year = request.form['year']
-        author = request.form['author']
-        content = request.form['content']
-        isbn = request.form['isbn']
-        image = request.form['image']
-
-        if not title:
-            flash('Title is required!')
-        elif not year:
-            flash('Year is required!')
-        elif not author:
-            flash('Author is required!')
-        elif not content:
-            flash('Content is required!')
-        elif not isbn:
-            flash('ISBN is required!')
-        elif not image:
-            flash('Image is required!')
-    return render_template('borrow_book.html')
-
-
 @app.route('/books')
 def our_books():
     return render_template('our-books.html')
@@ -124,21 +99,6 @@ def book_reg():
             Books.create(b_name=title, b_year=year, b_author=author, b_content=content, b_isbn=isbn, url=image)
             return redirect(url_for('all_books'))
     return render_template('book-reg.html')
-
-
-@app.route('/student_info')
-def student_info():
-    if 'user_id' in session:
-        user_id = session['user_id']
-        user = Student.get(Student.id == user_id)
-        if user:
-            return render_template('our-students.html', user=user)
-        else:
-            flash('User not found.', 'danger')
-            return redirect(url_for('main'))
-    else:
-        flash('Please log in to view this page.', 'info')
-        return redirect(url_for('login'))
     
     
 @app.route('/search', methods=['GET', 'POST'])
@@ -168,13 +128,42 @@ def all_books():
     return render_template('our-books.html', books=books)
 
 
-@app.route('/borrow/<int:book_id>', methods=['GET', 'POST'])
+@app.route('/borrow/<int:book_id>', methods=['GET','POST'])
 def borrow_book(book_id):
-    if request.method == 'POST':
-        flash('Book borrowed successfully.', 'success')
-        return redirect(url_for('display'))
+    if 'user_id' in session:
+        user_id = session['user_id']
+        user = Student.get(Student.id == user_id)
+        book = Books.get(Books.id == book_id)
+        if book.available:   
+            book.borrowed_user = user.id
+            book.available = False
+            book.save()
+            flash('Book borrowed successfully.')
+        else:
+            flash('Book is not available for borrowing.', 'warning')
+        return render_template('borrow_book.html', user=user, book=book, bs=[book], book_id=book_id)
     else:
         flash('Please log in to borrow books.', 'info')
+        return redirect(url_for('login'))                                                                                                                                                                                                                                           
+
+
+@app.route('/student_info')
+def student_info():
+    if 'user_id' in session:
+        user_id = session['user_id']
+        try:
+            user = Student.get(Student.id == user_id)
+            if user:
+                borrowed_books = BorrowedBooks.select().where(BorrowedBooks.student == user)
+                return render_template('our-students.html', user=user, bb=[borrowed_books])
+            else:
+                flash('User not found.', 'danger')
+                return redirect(url_for('main'))
+        except Student.DoesNotExist:
+            flash('User not found in the database.', 'danger')
+            return redirect(url_for('main'))
+    else:
+        flash('Please log in to view this page.', 'info')
         return redirect(url_for('login'))
 
 
@@ -198,7 +187,7 @@ def display():
 
 def create_tables():
     with db:
-        db.create_tables([Books, Student])
+        db.create_tables([Books, Student, BorrowedBooks])
 
 
 if __name__ == '__main__':
