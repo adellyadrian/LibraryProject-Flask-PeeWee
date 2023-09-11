@@ -6,10 +6,21 @@
     <link rel="stylesheet" href="static/our_students.css">
 </head>
 <body>
-    <div class="display">
         <p class="headline">
             UniLibrary Students
         </p>
-    </div>
+        <div class="display">
+            <p class='names'> {{ user.first_name }} {{ user.last_name }}</p>
+            <p>Email: {{ user.email }}</p>
+        </div>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
 </body>
 </html>
