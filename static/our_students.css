@@ -1,16 +1,72 @@
 body {
     overflow: hidden;
     background-color: #dbd39a;
-    opacity: 0.8:
+    opacity: 0.8;
     background-position: center center;
 }
 
+.header {
+    overflow: hidden;
+    background-color: #444422;
+    padding: 1px 1px;
+    height: 80px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000; 
+  }
+
+  .header a {
+    float: left;
+    color: white;
+    padding: 16px;
+    text-decoration: none;
+    font-size: 40px;
+    line-height: 25px;
+    font-family: brush script mt, cursive;
+    border-radius: 4px;
+  }
+
+  .ul{
+    position: absolute;
+    top: 15px;
+    left: 10px;
+  }
+
+  .header a:hover {
+    background-color: grey;
+    color: black;
+  }
+
+  .header a.active {
+    background-color: black;
+    color: white;
+  }
+
+  .header-right {
+    float: right;
+    margin-top: 10px;
+    padding: 5px;
+
+  }
+
+.us {
+    top: 80px;
+  }
+
 .headline {
-    font-size: 60px;
-    border-size: 5px;
+    font-size: 80px;
     font-family: brush script mt, cursive;
     text-align: center;
     text-shadow: 2px 2px 4px grey;
 }
 
+.display {
+    font-size: 30px;
+}
 
+.names {
+    font-size: 40px;
+    text-shadow: 2px 2px 4px grey;
+}
