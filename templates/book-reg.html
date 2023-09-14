@@ -5,6 +5,18 @@
     <link rel="stylesheet" href="static/reg.css">
 </head>
 <body>
+    <div class="header">
+        <a class="ul">UniLibrary</a>
+        <div class="header-right">
+            <a class="active" href="{{url_for('main')}}">Home</a>
+            <a href="{{url_for('about')}}">About</a>
+            <a href="{{url_for('student_info')}}">Our Students</a>
+            <a href="{{url_for('all_books')}}">Our Books</a>
+            <a href="login">Login</a>
+            <a href="{{url_for('signup')}}">My Account</a>
+            <img src="" alt="">
+        </div>
+    </div>
     {% with messages = get_flashed_messages() %}
         {% if messages %}
             <ul>
