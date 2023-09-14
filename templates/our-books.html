@@ -6,54 +6,66 @@
     <link rel="stylesheet" href="static/our_books.css">
 </head>
 <body>
-    {% if first_name %}
-        <span class="fn">Student: {{ first_name }}</span>
-        <a href="{{ url_for('logout') }}" class="add">Log Out</a>
-        <a href="{{ url_for('all_books') }}" class="add">Add a Book</a>
-        <a href="{{ url_for('new_book') }}" class="addbook">Book Registration</a>
-        <div class='display'>
-            <p>Name: {{ user.first_name }} {{ user.last_name }}</p>
-            <p>Email: {{ user.email }}</p>
-            <p>Code: {{ user.code }}</p>
-            <p>Password: {{ user.password }}</p>
+    <div class="header">
+        <a class="ul">UniLibrary</a>
+        <div class="header-right">
+            <a href="{{url_for('main')}}">Home</a>
+            <a href="{{url_for('about')}}">About</a>
+            <a href="{{url_for('student_info')}}">Our Students</a>
+            <a class="active" href="{{url_for('all_books')}}">Our Books</a>
+            <a href="login">Login</a>
+            <a href="{{url_for('signup')}}">My Account</a>
+            <img src="" alt="">
         </div>
-    {% endif %}
-
-
-    {% if not first_name %}
-        <p class="headline">
-            UniLibrary Books
-        </p>
-    {% endif %}
-
-    <form method="POST" action="{{ url_for('all_books') }}">
-        <div class="bs">
-            {% for book in books %}
-                <div class="book">
-                    <label class="title-label">
-                        {% if book.image %}
-                            <img src="{{ book.image }}" class="book-style">
-                        {% else %}
-                            <p>No image available</p>
-                        {% endif %}
-                        <input type="checkbox" class="show-details-checkbox">
-                        <a href="#book-{{ loop.index }}" class="book-title-link">
-                            <h1>{{ book.title }}</h1>
-                        </a>
-    </form>
-    <form method="POST" action="{{ url_for('borrow_book', book_id=book.id) }}">
-                    <input type="hidden" name="book_id" value="{{ book.id }}">
-                    <input type="submit" value="Borrow" class="s1">
-                    </label>
-                    <div class="additional-info" id="book-{{ loop.index }}">
-                        <h2>Author: {{ book.author }}</h2>
-                        <h3>ISBN: {{ book.isbn }}</h3>
-                        <h3>Year: {{ book.year }}</h3>
-                        <h3>Content: {{ book.content }}</h3>
-                    </div>
+    </div>
+    <div class="stpage">
+        {% if first_name %}
+                <span class="fn">Student: {{ first_name }}</span>
+                <a href="{{ url_for('logout') }}" class="add">Log Out</a>
+                <a href="{{ url_for('all_books') }}" class="add">Add a Book</a>
+                <a href="{{ url_for('new_book') }}" class="addbook">Book Registration</a>
+                <div class='display'>
+                    <p>Name: {{ user.first_name }} {{ user.last_name }}</p>
+                    <p>Email: {{ user.email }}</p>
+                    <p>Code: {{ user.code }}</p>
+                    <p>Password: {{ user.password }}</p>
                 </div>
-            {% endfor %}
-        </div>
-    </form>
+        {% endif %}
+    </div>
+    </div>
+        {% if not first_name %}
+            <p class="headline">
+                UniLibrary Books
+            </p>
+        {% endif %}
+        <form method="POST" action="{{ url_for('all_books') }}">
+            <div class="bs">
+                {% for book in books %}
+                    <div class="book">
+                        <label class="title-label">
+                            {% if book.image %}
+                                <img src="{{ book.image }}" class="book-style">
+                            {% else %}
+                                <p>No image available</p>
+                            {% endif %}
+                            <input type="checkbox" class="show-details-checkbox">
+                            <a href="#book-{{ loop.index }}" class="book-title-link">
+                                <h1>{{ book.title }}</h1>
+                            </a>
+        </form>
+        <form method="POST" action="{{ url_for('borrow_book', book_id=book.id) }}">
+                        <input type="hidden" name="book_id" value="{{ book.id }}">
+                        <input type="submit" value="Borrow" class="s1">
+                        </label>
+                        <div class="additional-info" id="book-{{ loop.index }}">
+                            <h2>Author: {{ book.author }}</h2>
+                            <h3>ISBN: {{ book.isbn }}</h3>
+                            <h3>Year: {{ book.year }}</h3>
+                            <h3>Content: {{ book.content }}</h3>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </form>
 </body>
 </html>
