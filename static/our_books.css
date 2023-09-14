@@ -1,21 +1,75 @@
 body {
     background-color: #dbd39a;
-    opacity: 0.8:
+    opacity: 0.8;
     background-position: center center;
 }
+
+.header {
+    overflow: hidden;
+    background-color: #444422;
+    padding: 1px 1px;
+    height: 70px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000; 
+  }
+
+  .header a {
+    float: left;
+    color: white;
+    padding: 16px;
+    text-decoration: none;
+    font-size: 40px;
+    line-height: 25px;
+    font-family: brush script mt, cursive;
+    border-radius: 4px;
+  }
+
+  .ul{
+    position: absolute;
+    top: 15px;
+    left: 10px;
+  }
+
+  .header a:hover {
+    background-color: grey;
+    color: black;
+  }
+
+  .header a.active {
+    background-color: black;
+    color: white;
+  }
+
+  .header-right {
+    float: right;
+    margin-top: 10px;
+    padding: 5px;
+
+  }
 
 .headline {
     color: black;
     font-size: 60px;
-    border-size: 5px;
     font-family: brush script mt, cursive;
     text-shadow: 2px 2px 4px grey;
     text-align: center;
+    top: 20px;
+}
+
+.stpage {
+    top: 100px;
 }
 
 h1 {
     color: black;
     font-size: 30px;
+}
+
+.display {
+    font-size: 20px;
 }
 
 .book-style {
@@ -31,10 +85,6 @@ h1 {
     font-size: 50px;
     font-family: brush script mt, cursive;
     text-shadow: 2px 2px 4px grey;
-}
-
-.add {
-
 }
 
 .bs {
@@ -111,8 +161,8 @@ h1 {
     float: right;
     margin-right: 10px;
     margin-top: 15px;
-    width: 70px;
-    height: 40px;
+    width: 280px;
+    height: 50px;
     font-size: 30px;
     color: white;
     background: #9E4244;
@@ -120,4 +170,3 @@ h1 {
     box-shadow: 0px 10px 40px -5px #9E4244;
     text-align: center;
 }
-
