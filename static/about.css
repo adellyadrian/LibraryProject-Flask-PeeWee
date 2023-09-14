@@ -5,6 +5,51 @@ body {
     background-position: center center;
 }
 
+.header {
+    overflow: hidden;
+    background-color: #444422;
+    padding: 1px 1px;
+    height: 80px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000; 
+  }
+
+  .header a {
+    float: left;
+    color: white;
+    padding: 16px;
+    text-decoration: none;
+    font-size: 40px;
+    line-height: 25px;
+    font-family: brush script mt, cursive;
+    border-radius: 4px;
+  }
+
+  .ul{
+    position: absolute;
+    top: 15px;
+    left: 10px;
+  }
+
+  .header a:hover {
+    background-color: grey;
+    color: black;
+  }
+
+  .header a.active {
+    background-color: black;
+    color: white;
+  }
+
+  .header-right {
+    float: right;
+    margin-top: 10px;
+    padding: 5px;
+
+  }
 
 .d {
     overflow: hidden;
@@ -13,7 +58,7 @@ body {
     width: 1000px;
     height: 600px;
     position: relative;
-    top: 60px;
+    top: 100px;
     left: 20%;
     opacity: 0.9;
 }
@@ -21,8 +66,7 @@ body {
 .headline{
     text-align: center;
     color: black;
-    border-size: 5px;
-    font-size: 60px;
+    font-size: 75px;
     font-family: brush script mt, cursive;
     text-shadow: 2px 2px 4px grey;
 }
@@ -31,13 +75,4 @@ body {
     font-size: 50px;
     text-align: center;
     opacity: 0.8;
-}
-
-.home_link {
-    display: block;
-    text-align: center;
-    padding: 10px 20px;
-    color: black;
-    font-size: 40px;
-    font-family: brush script mt, cursive;
 }
