@@ -12,6 +12,11 @@ body {
     opacity: 0.8;
     padding: 1px 1px;
     height: 80px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000; 
   }
 
   .header a {
@@ -31,9 +36,8 @@ body {
     left: 10px;
   }
 
-
   .header a:hover {
-    background-color: #brown;
+    background-color: grey;
     color: black;
   }
 
@@ -47,6 +51,16 @@ body {
     margin-top: 10px;
     padding: 5px;
 
+  }
+
+.st {
+    font-size: 50px;
+    position: absolute;
+    right: 160px;
+    top: 210px;
+    line-height: 25px;
+    font-family: brush script mt, cursive;
+    border-radius: 4px;
   }
 
 .header input[type=text] {
@@ -63,8 +77,8 @@ body {
     position: absolute;
     font-size: 30px;
     padding: 20px;
-    width: 800px;
-    background-color: #967969;
+    width: 770px;
+    background-color: #55552b;
     opacity: 0.7;
     color: white;
 }
@@ -134,19 +148,6 @@ body {
     font-size: 25px;
 }
 
-.s1 {
-    position: absolute;
-    margin: 30px 750px;
-    background-color: #0096FF;
-    width: 150px;
-    height: 50px;
-    color: white;
-    font-size: 15px;
-}
-
-.s1:hover {
-    background-color: black;
-}
 
 .img2 {
     width: 300px;
@@ -167,19 +168,7 @@ body {
     font-size: 25px;
 }
 
-.s2 {
-    position: absolute;
-    margin: 100px 750px;
-    background-color: #0096FF;
-    width: 150px;
-    height: 50px;
-    color: white;
-    font-size: 15px;
-}
 
-.s2:hover {
-    background-color: black;
-}
 
 .img3 {
     width: 650px;
@@ -200,19 +189,6 @@ body {
     font-size: 25px;
 }
 
-.s3 {
-    position: absolute;
-    margin: 100px 750px;
-    background-color: #0096FF;
-    width: 150px;
-    height: 50px;
-    color: white;
-    font-size: 15px;
-}
-
-.s3:hover {
-    background-color: black;
-}
 
 .img4 {
     width: 600px;
@@ -233,19 +209,6 @@ body {
     font-size: 25px;
 }
 
-.s4 {
-    position: absolute;
-    margin: 100px 750px;
-    background-color: #0096FF;
-    width: 150px;
-    height: 50px;
-    color: white;
-    font-size: 15px;
-}
-
-.s4:hover {
-    background-color: black;
-}
 
 .news {
     overflow: hidden;
