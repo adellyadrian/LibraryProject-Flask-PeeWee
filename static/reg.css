@@ -11,7 +11,6 @@ body * {
 .header {
   overflow: hidden;
   background-color: #444422;
-  opacity: 0.8;
   padding: 1px 1px;
   height: 80px;
   position: fixed;
@@ -89,7 +88,7 @@ body * {
 
 .card {
   width: 80%;
-  height: 1500px;
+  height: 1400px;
   display: flex;
   justify-content: center;
   align-items: center;
