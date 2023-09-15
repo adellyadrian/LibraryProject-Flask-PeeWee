@@ -21,9 +21,11 @@
     <div class="stpage">
         {% if first_name %}
                 <span class="fn">Student: {{ first_name }}</span>
-                <a href="{{ url_for('logout') }}" class="add">Log Out</a>
-                <a href="{{ url_for('all_books') }}" class="add">Add a Book</a>
-                <a href="{{ url_for('new_book') }}" class="addbook">Book Registration</a>
+                <div class="buttons">
+                    <a href="{{ url_for('logout') }}" class="add">Log Out</a>
+                    <a href="{{ url_for('all_books') }}" class="add">Add a Book</a>
+                    <a href="{{ url_for('new_book') }}" class="addbook">Book Registration</a>
+                </div>
                 <div class='display'>
                     <p>Name: {{ user.first_name }} {{ user.last_name }}</p>
                     <p>Email: {{ user.email }}</p>
@@ -31,8 +33,6 @@
                     <p>Password: {{ user.password }}</p>
                 </div>
         {% endif %}
-    </div>
-    </div>
         {% if not first_name %}
             <p class="headline">
                 UniLibrary Books
@@ -67,5 +67,6 @@
                 {% endfor %}
             </div>
         </form>
+    </div>
 </body>
 </html>
