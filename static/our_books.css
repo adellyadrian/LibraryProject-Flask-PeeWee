@@ -60,7 +60,9 @@ body {
 }
 
 .stpage {
+    position: absolute;
     top: 100px;
+    width: 100%;
 }
 
 h1 {
@@ -140,6 +142,12 @@ h1 {
 .s1:hover {
     background-color: black;
     color: white;
+}
+
+.buttons {
+    position: absolute;
+    top: 0; 
+    right: 0; 
 }
 
 .add {
