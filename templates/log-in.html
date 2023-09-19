@@ -13,11 +13,11 @@
     <div class="header-right">
         <a href="{{url_for('main')}}">Home</a>
         <a href="{{url_for('about')}}">About</a>
-        <a href="{{url_for('student_info')}}">Our Students</a>
         <a href="{{url_for('all_books')}}">Our Books</a>
         <a class="active" href="login">Login</a>
-        <a href="{{url_for('signup')}}">My Account</a>
-        <img src="" alt="">
+        {% if session.get('logged_in') %}
+          <a href="{{ url_for('display') }}">My Page</a>
+        {% endif %}
     </div>
   </div>
     <form method="POST" action="{{ url_for('login') }}">
@@ -25,12 +25,12 @@
           <div class="right">
             <div class="ms">
               {% with messages = get_flashed_messages() %}
-                  {% if messages %}
-                          {% for message in messages %}
-                              <p class="msg">{{ message }}!</p>
-                          {% endfor %}
-                  {% endif %}
-                {% endwith %}
+                {% if messages %}
+                  {% for message in messages %}
+                    <p class="msg">{{ message }}!</p>
+                  {% endfor %}
+                {% endif %}
+              {% endwith %}
             </div>
             <div class="card">
               <h1>LOGIN</h1>
