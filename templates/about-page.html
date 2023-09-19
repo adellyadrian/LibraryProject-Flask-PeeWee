@@ -11,11 +11,11 @@
         <div class="header-right">
             <a href="{{url_for('main')}}">Home</a>
             <a class="active" href="{{url_for('about')}}">About</a>
-            <a href="{{url_for('student_info')}}">Our Students</a>
             <a href="{{url_for('all_books')}}">Our Books</a>
             <a href="login">Login</a>
-            <a href="{{url_for('signup')}}">My Account</a>
-            <img src="" alt="">
+            {% if session.get('logged_in') %}
+                <a href="{{ url_for('display') }}">My Page</a>
+            {% endif %}
         </div>
     </div>
     <div class="d">
@@ -24,6 +24,10 @@
         </p>
         <p class="about_uni">
             Uni Library is a platform where you can get acquainted with books of different genres and order books of different genres, being a student, you can register on our website and order books
+            <br>
+            <br>
+            <a href="">www.instagram/uni_library.com</a>
+            <a href="">www.facebook/uni_library.com</a>
         </p>
     </div>
 </body>
