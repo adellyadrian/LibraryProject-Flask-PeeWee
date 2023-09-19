@@ -65,10 +65,13 @@ def login():
             if user.password == password:
                 session['user_id'] = user.id
                 session['first_name'] = user.first_name
+                session['logged_in'] = True
                 return redirect(url_for('display'))
             else:
                 flash('Invalid username or password.', 'error')
         except Student.DoesNotExist:
+            flash('Invalid username or password.', 'error')
+        else:
             flash('Invalid username or password.', 'error')
     return render_template('log-in.html')
 
@@ -114,6 +117,7 @@ def search_books():
 def logout():
     session.pop('user_id', None)
     session.pop('username', None)
+    session.pop('logged_in', None) 
     flash('Logged out successfully!', 'success')
     return redirect(url_for('login'))
 
@@ -161,6 +165,44 @@ def student_info():
     else:
         flash('Please log in to view this page.', 'info')
         return redirect(url_for('login'))
+
+
+@app.route('/<int:id>/edit/', methods=('GET', 'POST'))
+def edit(id):
+    try:
+        student = Student.get(Student.id == id)
+    except Student.DoesNotExist:
+        abort(404)
+
+    if request.method == 'POST':
+        first_name = request.form.get('first_name', '')
+        last_name = request.form.get('last_name', '')
+        code = request.form.get('code', '')
+        email = request.form.get('email', '')
+        password = request.form.get('password', '')
+        if 'user_id' in session:
+            user_id = session['user_id']
+            user = Student.get(Student.id == user_id)
+        if not first_name:
+            flash('Name is required!')
+        elif not last_name:
+            flash('Last Name is required!')
+        elif not code:
+            flash('University Code is required!')
+        elif not email:
+            flash('Email is required!')
+        elif not password:
+            flash('Password is required!')
+        else:
+            student.first_name = first_name
+            student.last_name = last_name
+            student.code = code
+            student.email = email
+            student.password = password
+            student.save()
+            flash('Student types updated successfully!', 'success')
+            return redirect(url_for('display'))
+    return render_template('edit.html', user=student)
 
 
 @app.route('/display')
