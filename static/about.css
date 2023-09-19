@@ -1,13 +1,17 @@
 body {
     overflow: hidden;
-    background-image: url('https://i.pinimg.com/564x/fc/93/ff/fc93ff9b92d0e0722e237277e753e869.jpg');
-    background-size: 600px 800px;
-    background-position: center center;
+    background-image: url('https://image.slidesdocs.com/responsive-images/background/travel-postcard-illustration-poster-powerpoint-background_d3585837ee__960_540.jpg');
+    background-size: 1600px 1000px;
+    background-repeat: repeat;
+    margin: 0;
+    padding: 0;
+
 }
 
 .header {
     overflow: hidden;
     background-color: #444422;
+    opacity: 0.8;
     padding: 1px 1px;
     height: 80px;
     position: fixed;
@@ -53,7 +57,7 @@ body {
 
 .d {
     overflow: hidden;
-    background-color: #dbd39a;
+   background-color: black;
     padding: 1px 1px;
     width: 1000px;
     height: 600px;
@@ -65,14 +69,15 @@ body {
 
 .headline{
     text-align: center;
-    color: black;
-    font-size: 75px;
+    color: white;
+    font-size: 60px;
     font-family: brush script mt, cursive;
-    text-shadow: 2px 2px 4px grey;
+    text-shadow: 2px 2px 4px #dbd39a;
 }
 
 .about_uni {
-    font-size: 50px;
+    color: white;
+    font-size: 40px;
     text-align: center;
     opacity: 0.8;
 }
