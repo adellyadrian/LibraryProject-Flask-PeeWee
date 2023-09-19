@@ -12,11 +12,11 @@
       <div class="header-right">
           <a class="active" href="#home">Home</a>
           <a href="{{url_for('about')}}">About</a>
-          <a href="{{url_for('student_info')}}">Our Students</a>
           <a href="{{url_for('all_books')}}">Our Books</a>
           <a href="login">Login</a>
-          <a href="{{url_for('signup')}}">My Account</a>
-          <img src="" alt="">
+          {% if session.get('logged_in') %}
+              <a href="{{ url_for('display') }}">My Page</a>
+          {% endif %}
       </div>
   </div>
    <form method="POST" action="/search">
