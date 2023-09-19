@@ -11,7 +11,7 @@ body * {
 .main {
   width: 100vw;
   height: 100vh;
-  background-image: url('https://i.pinimg.com/564x/fc/93/ff/fc93ff9b92d0e0722e237277e753e869.jpg');
+  background-color: black;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -131,8 +131,7 @@ body * {
 
 .header {
   overflow: hidden;
-  background-color: #444422;
-  opacity: 0.8;
+  background-color: #dbd39a;
   padding: 1px 1px;
   height: 80px;
   position: fixed;
@@ -144,7 +143,7 @@ body * {
 
 .header a {
   float: left;
-  color: white;
+  color: black;
   padding: 16px;
   text-decoration: none;
   font-size: 40px;
