@@ -1,14 +1,13 @@
 body {
-    background-color: #dbd39a;
-    opacity: 0.8;
+    background-color: black;
     background-position: center center;
 }
 
 .header {
     overflow: hidden;
-    background-color: #444422;
+    background-color: #dbd39a;
     padding: 1px 1px;
-    height: 70px;
+    height: 80px;
     position: fixed;
     top: 0;
     left: 0;
@@ -16,9 +15,9 @@ body {
     z-index: 1000; 
   }
 
-  .header a {
+.header a {
     float: left;
-    color: white;
+    color: black;
     padding: 16px;
     text-decoration: none;
     font-size: 40px;
@@ -27,23 +26,23 @@ body {
     border-radius: 4px;
   }
 
-  .ul{
+.ul{
     position: absolute;
     top: 15px;
     left: 10px;
   }
 
-  .header a:hover {
+.header a:hover {
     background-color: grey;
     color: black;
   }
 
-  .header a.active {
+.header a.active {
     background-color: black;
     color: white;
   }
 
-  .header-right {
+.header-right {
     float: right;
     margin-top: 10px;
     padding: 5px;
@@ -51,10 +50,10 @@ body {
   }
 
 .headline {
-    color: black;
+    color: white;
     font-size: 60px;
     font-family: brush script mt, cursive;
-    text-shadow: 2px 2px 4px grey;
+    text-shadow: 2px 2px 4px #dbd39a;
     text-align: center;
     top: 20px;
 }
@@ -66,12 +65,15 @@ body {
 }
 
 h1 {
-    color: black;
+    color: white;
     font-size: 30px;
 }
 
 .display {
     font-size: 20px;
+    color: white;
+    position: absolute;
+    top: 170px;
 }
 
 .book-style {
@@ -82,15 +84,21 @@ h1 {
     display: none;
 }
 
+.book {
+    margin-bottom: 20px;
+}
+
 .fn {
-    color: black;
+    position: absolute;
+    top: 100px;
+    color: white;
     font-size: 50px;
     font-family: brush script mt, cursive;
     text-shadow: 2px 2px 4px grey;
 }
 
 .bs {
-    color: black;
+    color: white;
 }
 
 
@@ -99,18 +107,19 @@ h1 {
 }
 
 .title-label {
-    display: flex;
+    display: block;
     align-items: center;
     cursor: pointer;
 }
 
 .additional-info {
+    color: white;
     display: none;
     margin-top: 10px;
 }
 
-.show-details-checkbox:checked ~ .additional-info {
-    display: none;
+.show-details-checkbox:checked + .title-label + .additional-info {
+    display: block;
 }
 
 .book-title-link {
@@ -119,18 +128,11 @@ h1 {
     cursor: pointer;
 }
 
-.additional-info {
-    display: none;
-}
-
 .additional-info:target {
     display: block;
 }
 
 .s1 {
-    position: absolute;
-    margin-left: 230px;
-    margin-top: 100px;
     background-color: #0096FF;
     width: 100px;
     height: 40px;
@@ -146,23 +148,23 @@ h1 {
 
 .buttons {
     position: absolute;
-    top: 0; 
+    margin-top: 90px;
     right: 0; 
 }
 
 .add {
     float: right;
-    margin-right: 10px;
+    margin-right: 15px;
     margin-top: 15px;
     width: 200px;
-    height: 40px;
-    font-size: 25px;
+    height: 50px;
+    font-size: 30px;
     color: white;
-    background: purple;
+    background: #53581a;
     cursor: pointer;
-    box-shadow: 0px 10px 40px -5px purple;
-    border-radius: 20px;
+    box-shadow: 0px 10px 40px -5px #dbd39a;
     text-align: center;
+    text-decoration: none;
 }
 
 .addbook {
@@ -173,8 +175,17 @@ h1 {
     height: 50px;
     font-size: 30px;
     color: white;
-    background: #9E4244;
+    background: #53581a;
     cursor: pointer;
-    box-shadow: 0px 10px 40px -5px #9E4244;
+    box-shadow: 0px 10px 40px -5px #dbd39a;
     text-align: center;
+    text-decoration: none;
+}
+
+.edit {
+    width: 85px;
+    height: 30px;
+    background: #53581a;
+    font-size: 22px;
+    color: white;
 }
