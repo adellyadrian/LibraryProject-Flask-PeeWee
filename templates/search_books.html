@@ -10,11 +10,11 @@
         <div class="header-right">
             <a href="{{url_for('main')}}">Home</a>
             <a href="{{url_for('about')}}">About</a>
-            <a href="{{url_for('student_info')}}">Our Students</a>
             <a class="active" href="{{url_for('all_books')}}">Our Books</a>
             <a href="login">Login</a>
-            <a href="{{url_for('signup')}}">My Account</a>
-            <img src="" alt="">
+            {% if session.get('logged_in') %}
+                <a href="{{ url_for('display') }}">My Page</a>
+            {% endif %}
         </div>
     </div>
     <div class="examples">
@@ -32,8 +32,6 @@
                     <h3 class="content">Content: {{ book.content }}</h3>
                     <div class="buttons">
                         <a href="{{url_for('student_info', book_id=book_id)}}"><input type="submit" class="s1" value="Add to a List"></a>
-                        <a href="{{url_for('login')}}"><input type="submit" class="s2" value="LogIn"></a>
-                        <a href="{{url_for('main')}}"><input type="submit" class="s3" value="Home Page"></a>
                     </div>
         {% endfor %}
     </div>
