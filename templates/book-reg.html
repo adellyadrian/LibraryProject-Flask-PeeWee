@@ -14,7 +14,9 @@
             <a href="{{url_for('all_books')}}">Our Books</a>
             <a href="login">Login</a>
             <a href="{{url_for('signup')}}">My Account</a>
-            <img src="" alt="">
+            {% if session.get('logged_in') %}
+                <a href="{{ url_for('display') }}">My Page</a>
+            {% endif %}
         </div>
     </div>
     {% with messages = get_flashed_messages() %}
