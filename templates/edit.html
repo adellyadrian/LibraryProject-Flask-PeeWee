@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit</title>
+    <link rel="stylesheet" href="/static/change.css">
+</head>
+<body>
+    <div class="header">
+        <a class="ul">UniLibrary</a>
+        <div class="header-right">
+            <a href="{{url_for('main')}}">Home</a>
+            <a href="{{url_for('about')}}">About</a>
+            <a class="active" href="{{url_for('all_books')}}">Our Books</a>
+            <a href="login">Login</a>
+        </div>
+    </div>
+    <div class="stpage">
+        {% if first_name %}
+            <div class="header">
+                <a class="ul">My Library</a>
+                <div class="header-right">
+                    <a href="{{url_for('main')}}">Home</a>
+                    <a href="{{url_for('about')}}">About</a>
+                    <a href="{{url_for('all_books')}}">Our Books</a>
+                    <a href="login">Login</a>
+                    <a class="active" href="login">My Page</a>
+                </div>
+            </div>
+            </div>
+            <span class="fn">Student: {{ first_name }}</span>
+            <div class="buttons">
+                <a href="{{ url_for('logout') }}" class="add">Log Out</a>
+                <a href="{{ url_for('all_books') }}" class="add">Add a Book</a>
+                <a href="{{ url_for('new_book') }}" class="addbook">Book Registration</a>
+            </div>
+        {% endif %}
+    </div>
+    <span class="fn">Student: {{ user.first_name }}</span>
+    <form method="POST" action="{{ url_for('edit', id=user.id) }}">
+        <div class="changes">
+            <div>
+            <label for="first_name"> New First Name: </label>
+            <br>
+            <input type="text" name="first_name" placeholder="Enter a new name" value="{{ user.first_name }}" required>
+            </div>
+            <div>
+            <label for="text"> New Last Name: </label>
+            <br>
+            <input type="text" name="last_name" placeholder="Enter a new last-name" value="{{ user.last_name }}" required>
+            </div>
+            <div>
+            <label for="code"> New Code: </label>
+            <br>
+            <input type="text" name="code" placeholder="Enter your code" value="{{ user.code }}" required>
+            </div>
+            <div>
+            <label for="email"> New Email: </label>
+            <br>
+            <input type="text" name="email" placeholder="Enter new email" value="{{ user.email }}" required>
+            </div>
+            <div>
+            <label for="password"> New Password: </label>
+            <br>
+            <input type="password" name="password" placeholder="Enter new password" value="{{ user.password }}" required>
+            </div>
+            <input type="submit">
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <p class="msg">{{ message }}!</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </div>
+    </form>
+    <hr>
+</body>
+</html>
