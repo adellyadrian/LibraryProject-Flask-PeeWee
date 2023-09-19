@@ -1,0 +1,64 @@
+body {
+    background-color: black;
+    background-position: center center;
+}
+
+.header {
+    overflow: hidden;
+    background-color: #dbd39a;
+    padding: 1px 1px;
+    height: 80px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000; 
+  }
+
+.header a {
+    float: left;
+    color: black;
+    padding: 16px;
+    text-decoration: none;
+    font-size: 40px;
+    line-height: 25px;
+    font-family: brush script mt, cursive;
+    border-radius: 4px;
+  }
+
+.ul{
+    position: absolute;
+    top: 15px;
+    left: 10px;
+  }
+
+.header a:hover {
+    background-color: grey;
+    color: black;
+  }
+
+.header a.active {
+    background-color: black;
+    color: white;
+  }
+
+.header-right {
+    float: right;
+    margin-top: 10px;
+    padding: 5px;
+
+  }
+
+.fn {
+    position: absolute;
+    top: 100px;
+    color: white;
+    font-size: 50px;
+    font-family: brush script mt, cursive;
+    text-shadow: 2px 2px 4px grey;
+}
+
+.changes {
+    margin-top: 200px;
+    color: white;
+}
